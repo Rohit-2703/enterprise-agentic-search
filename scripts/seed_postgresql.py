@@ -18,9 +18,10 @@ def create_tables():
     logger.info("Creating PostgreSQL tables for test data...")
     
     with engine.connect() as conn:
-        # Create employees table
+        # Drop and recreate employees table to ensure correct schema
+        conn.execute(text("DROP TABLE IF EXISTS employees CASCADE"))
         conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS employees (
+            CREATE TABLE employees (
                 id SERIAL PRIMARY KEY,
                 employee_id VARCHAR(50) UNIQUE NOT NULL,
                 first_name VARCHAR(100) NOT NULL,
@@ -30,15 +31,16 @@ def create_tables():
                 position VARCHAR(100) NOT NULL,
                 hire_date DATE NOT NULL,
                 salary DECIMAL(10, 2),
-                manager_id INTEGER,
+                manager_id VARCHAR(50),
                 location VARCHAR(100),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """))
         
-        # Create sales table
+        # Drop and recreate sales table
+        conn.execute(text("DROP TABLE IF EXISTS sales CASCADE"))
         conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS sales (
+            CREATE TABLE sales (
                 id SERIAL PRIMARY KEY,
                 sale_id VARCHAR(50) UNIQUE NOT NULL,
                 employee_id VARCHAR(50),
@@ -55,9 +57,10 @@ def create_tables():
             )
         """))
         
-        # Create products table
+        # Drop and recreate products table
+        conn.execute(text("DROP TABLE IF EXISTS products CASCADE"))
         conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS products (
+            CREATE TABLE products (
                 id SERIAL PRIMARY KEY,
                 product_id VARCHAR(50) UNIQUE NOT NULL,
                 product_name VARCHAR(255) NOT NULL,
@@ -69,9 +72,10 @@ def create_tables():
             )
         """))
         
-        # Create departments table
+        # Drop and recreate departments table
+        conn.execute(text("DROP TABLE IF EXISTS departments CASCADE"))
         conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS departments (
+            CREATE TABLE departments (
                 id SERIAL PRIMARY KEY,
                 department_name VARCHAR(100) UNIQUE NOT NULL,
                 head_employee_id VARCHAR(50),
@@ -114,6 +118,7 @@ def seed_employees():
     
     employees_data = []
     employee_ids = []
+    used_emails = set()  # Track used emails to ensure uniqueness
     
     # Generate employees
     for i in range(150):  # Generate 150 employees
@@ -121,7 +126,16 @@ def seed_employees():
         position = random.choice(positions_by_dept[dept])
         first_name = random.choice(first_names)
         last_name = random.choice(last_names)
-        email = f"{first_name.lower()}.{last_name.lower()}@techcorp.com"
+        
+        # Generate unique email
+        base_email = f"{first_name.lower()}.{last_name.lower()}@techcorp.com"
+        email = base_email
+        counter = 1
+        while email in used_emails:
+            email = f"{first_name.lower()}.{last_name.lower()}{counter}@techcorp.com"
+            counter += 1
+        used_emails.add(email)
+        
         employee_id = f"EMP{1000 + i:04d}"
         employee_ids.append(employee_id)
         

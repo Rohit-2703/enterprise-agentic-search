@@ -2,6 +2,7 @@
 import sys
 import os
 from datetime import datetime
+from sqlalchemy.exc import IntegrityError
 
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
@@ -87,19 +88,51 @@ def main():
         
         db = get_db_session()
         try:
-            kb_metadata = DocumentMetadata(
-                document_id="enterprise_kb",
-                source_type="wiki",
-                source_id="enterprise_kb",
-                title="Enterprise Knowledge Base",
-                url="",
-                author="system",
-                created_date=datetime.now(),
-                chunk_count=len(kb_chunks)
-            )
-            db.add(kb_metadata)
-            db.commit()
-            logger.info("Successfully saved knowledge base metadata to database")
+            # Try to get existing record first
+            existing_metadata = db.query(DocumentMetadata).filter(
+                DocumentMetadata.document_id == "enterprise_kb"
+            ).first()
+            
+            if existing_metadata:
+                # Update existing record
+                existing_metadata.chunk_count = len(kb_chunks)
+                existing_metadata.updated_date = datetime.now()
+                db.commit()
+                logger.info("Successfully updated knowledge base metadata in database")
+            else:
+                # Create new record
+                kb_metadata = DocumentMetadata(
+                    document_id="enterprise_kb",
+                    source_type="wiki",
+                    source_id="enterprise_kb",
+                    title="Enterprise Knowledge Base",
+                    url="",
+                    author="system",
+                    created_date=datetime.now(),
+                    chunk_count=len(kb_chunks)
+                )
+                db.add(kb_metadata)
+                db.commit()
+                logger.info("Successfully saved knowledge base metadata to database")
+        except IntegrityError as e:
+            db.rollback()
+            # Record already exists, update it
+            logger.info("Record already exists, updating...")
+            try:
+                existing = db.query(DocumentMetadata).filter(
+                    DocumentMetadata.document_id == "enterprise_kb"
+                ).first()
+                if existing:
+                    existing.chunk_count = len(kb_chunks)
+                    existing.updated_date = datetime.now()
+                    db.commit()
+                    logger.info("Successfully updated existing knowledge base metadata")
+                else:
+                    logger.warning("Could not find existing record, but unique constraint was violated")
+            except Exception as update_error:
+                logger.error(f"Error updating existing record: {update_error}")
+                db.rollback()
+                raise
         except Exception as e:
             logger.error(f"Error saving to database: {e}")
             db.rollback()
