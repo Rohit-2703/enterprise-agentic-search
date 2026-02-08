@@ -1,0 +1,615 @@
+# TechCorp Enterprise Knowledge Base
+
+## Company Overview
+
+TechCorp is a leading enterprise software company founded in 2018, specializing in AI-powered business solutions. We serve over 5,000 enterprise customers globally with a team of 1,200 employees across 15 offices worldwide. Our mission is to democratize AI technology for businesses of all sizes.
+
+Our headquarters is located in San Francisco, California, with major offices in New York, London, Singapore, and Bangalore. We went public in 2022 (NASDAQ: TECH) and reported $500M in annual recurring revenue in 2024.
+
+---
+
+## Company Policies
+
+### Vacation and Time Off Policy
+
+All full-time employees are entitled to 20 days of paid vacation per year, accrued monthly at a rate of 1.67 days per month. Employees can carry over up to 5 unused vacation days to the next calendar year. Any days beyond this limit will be forfeited.
+
+In addition to vacation days, employees receive:
+- 10 paid holidays per year (dates vary by country)
+- 5 sick days per year (no carryover)
+- 3 personal days per year
+- Unlimited mental health days (with manager approval)
+- Parental leave: 16 weeks for primary caregiver, 8 weeks for secondary caregiver
+
+Vacation requests must be submitted at least 2 weeks in advance through the HRIS system and require manager approval. During company blackout periods (end of quarter, major product launches), vacation may be restricted.
+
+### Remote Work Policy
+
+TechCorp operates on a hybrid work model. Employees are required to work from the office 3 days per week (Tuesday, Wednesday, Thursday are core days). Monday and Friday can be remote work days.
+
+Fully remote positions are available for specific roles, subject to approval by department heads. Remote employees must maintain overlap with Pacific Time working hours (at least 4 hours between 9 AM - 5 PM PT).
+
+All employees working remotely must:
+- Have a dedicated workspace with reliable internet (minimum 50 Mbps)
+- Be available during core hours for meetings
+- Attend quarterly in-person team meetings (travel covered by company)
+- Complete security training for remote work
+
+### Expense Reimbursement Policy
+
+Employees can expense business-related costs including:
+
+**Travel Expenses:**
+- Airfare: Economy class for domestic, premium economy for international flights over 6 hours
+- Hotels: Up to $250/night in major cities, $150/night in other locations
+- Ground transportation: Taxis, rideshare, rental cars (economy class)
+- Meals: Up to $75/day ($15 breakfast, $25 lunch, $35 dinner)
+
+**Equipment and Supplies:**
+- Home office setup: One-time stipend of $1,000 for remote employees
+- Technology: Laptop replacement every 3 years, monitors up to $500
+- Professional development: $2,000 per year for courses, conferences, certifications
+
+**Other:**
+- Client entertainment: Up to $100 per person with VP approval
+- Phone and internet: $75/month stipend for remote employees
+- Coworking space: Up to $300/month for fully remote employees
+
+All expenses must be submitted within 30 days with receipts via Expensify. Reimbursement is processed within 2 weeks.
+
+### Code of Conduct
+
+TechCorp is committed to maintaining a respectful, inclusive workplace. All employees must:
+
+1. Treat colleagues with dignity and respect regardless of role, background, or identity
+2. Maintain confidentiality of proprietary information and customer data
+3. Avoid conflicts of interest and disclose any potential conflicts to HR
+4. Follow security protocols and report any security incidents immediately
+5. Comply with all applicable laws and regulations
+
+Violations of the code of conduct may result in disciplinary action up to and including termination. We have a zero-tolerance policy for harassment, discrimination, and retaliation.
+
+Employees can report concerns anonymously through our ethics hotline (1-800-ETHICS) or via ethics@techcorp.com.
+
+---
+
+## Product Information
+
+### Authentication Platform
+
+Our flagship product, TechCorp AuthX, is an enterprise-grade authentication and identity management platform that serves over 50 million end users.
+
+**Key Features:**
+- Multi-factor authentication (MFA) with support for TOTP, SMS, biometric, and hardware keys
+- Single sign-on (SSO) with SAML 2.0 and OpenID Connect
+- Social login integration (Google, Microsoft, GitHub, LinkedIn)
+- Adaptive authentication with risk-based access controls
+- User management with role-based access control (RBAC)
+- API-first architecture with comprehensive SDKs for 10+ languages
+
+**Pricing Tiers (Annual Contract):**
+
+**Starter Plan - $499/month:**
+- Up to 10,000 monthly active users
+- Basic authentication (username/password, MFA)
+- Email support with 48-hour response time
+- Community forum access
+- 99.5% uptime SLA
+
+**Professional Plan - $1,999/month:**
+- Up to 50,000 monthly active users
+- All Starter features plus:
+- SSO (SAML and OIDC)
+- Advanced MFA options
+- Custom branding
+- Priority email and chat support (24-hour response)
+- 99.9% uptime SLA
+- Dedicated Slack channel
+
+**Enterprise Plan - Custom Pricing (starts at $10,000/month):**
+- Unlimited monthly active users
+- All Professional features plus:
+- Advanced security features (adaptive authentication, anomaly detection)
+- Custom integrations and workflows
+- Dedicated customer success manager
+- 24/7 phone support with 4-hour response time
+- 99.99% uptime SLA
+- On-premise deployment option
+- Custom contract terms
+
+**Add-ons:**
+- Advanced Analytics Dashboard: $500/month
+- Fraud Detection AI: $1,000/month
+- Additional user tiers: $0.02 per MAU above plan limit
+- Professional services: $250/hour
+
+### AI Assistant Platform
+
+TechCorp Assistant is our enterprise AI chatbot platform powered by advanced language models.
+
+**Capabilities:**
+- Natural language understanding in 25+ languages
+- Integration with enterprise systems (Salesforce, Zendesk, Slack, Teams)
+- Custom training on company knowledge bases
+- Sentiment analysis and intent classification
+- Handoff to human agents
+- Analytics and conversation insights
+
+**Pricing:**
+- Starter: $299/month for 5,000 conversations
+- Professional: $1,499/month for 50,000 conversations
+- Enterprise: Custom pricing for unlimited conversations
+
+---
+
+## Technical Architecture
+
+### System Design Principles
+
+All TechCorp products follow these core architectural principles:
+
+1. **API-First Design:** Every feature must have a well-documented REST or GraphQL API before UI implementation
+2. **Microservices Architecture:** Services are independently deployable and scalable
+3. **Cloud-Native:** Built for Kubernetes with containerized deployments
+4. **Security by Design:** Zero-trust architecture with encryption at rest and in transit
+5. **Observability:** Comprehensive logging, monitoring, and tracing via OpenTelemetry
+
+### Technology Stack
+
+**Backend:**
+- Languages: Python (FastAPI), Go (for high-performance services), Node.js (for real-time features)
+- Databases: PostgreSQL (primary), Redis (caching), MongoDB (analytics)
+- Message Queue: Apache Kafka for event streaming
+- Search: Elasticsearch for full-text search
+
+**Frontend:**
+- Framework: React with TypeScript
+- State Management: Redux Toolkit
+- UI Library: Material-UI with custom design system
+- Build Tool: Vite
+
+**Infrastructure:**
+- Cloud Provider: AWS (primary), GCP (disaster recovery)
+- Container Orchestration: Kubernetes (EKS)
+- CI/CD: GitHub Actions, ArgoCD
+- Monitoring: Datadog, PagerDuty
+- Secrets Management: HashiCorp Vault
+
+### Security Practices
+
+TechCorp maintains SOC 2 Type II, ISO 27001, and GDPR compliance.
+
+**Security Requirements:**
+- All code must pass security scans (Snyk, SonarQube) before merge
+- Dependencies updated monthly with automated vulnerability scanning
+- Penetration testing conducted quarterly by third-party firm
+- Security training required for all engineers annually
+- Data encrypted with AES-256 at rest, TLS 1.3 in transit
+- Customer data isolated by tenant with separate encryption keys
+- Access logs retained for 2 years for audit purposes
+
+**Incident Response:**
+- Critical vulnerabilities must be patched within 24 hours
+- Security incidents escalated immediately to security team
+- Post-incident reviews required for all P0/P1 incidents
+- Customers notified within 72 hours of data breach (GDPR requirement)
+
+---
+
+## Engineering Processes
+
+### Development Workflow
+
+TechCorp follows a trunk-based development model with feature flags.
+
+**Process:**
+1. Engineers create feature branches from main
+2. Code must include unit tests (minimum 80% coverage)
+3. Pull requests require 2 approvals from team members
+4. Automated CI runs tests, linters, security scans
+5. Merge to main triggers deployment to staging
+6. QA team validates in staging environment
+7. Feature flags control rollout to production (1%, 10%, 50%, 100%)
+8. Production deployment happens daily at 10 AM PT
+
+**Code Review Standards:**
+- PRs should be < 400 lines of code
+- Description must include context, testing steps, and screenshots (for UI changes)
+- Breaking changes require architecture review and migration plan
+- All public APIs must have OpenAPI/Swagger documentation
+
+### Release Schedule
+
+- **Patch releases:** Weekly (Tuesdays) for bug fixes
+- **Minor releases:** Monthly (first Wednesday) for new features
+- **Major releases:** Quarterly for breaking changes
+
+Release notes published on docs.techcorp.com with migration guides for breaking changes.
+
+### On-Call Rotation
+
+Engineering teams maintain 24/7 on-call coverage with weekly rotations.
+
+**Responsibilities:**
+- Respond to PagerDuty alerts within 15 minutes
+- Investigate and mitigate incidents
+- Write post-mortem reports for P0/P1 incidents
+- On-call engineers receive $500/week on-call stipend
+- Incident resolution after hours earns comp time (1.5x hours worked)
+
+**Escalation:**
+- P0 (service down): Immediate escalation to on-call engineer + manager
+- P1 (major degradation): Response within 30 minutes
+- P2 (minor issues): Response within 4 hours
+- P3 (cosmetic): Addressed in next sprint
+
+---
+
+## HR and Benefits
+
+### Compensation Philosophy
+
+TechCorp benchmarks compensation to the 75th percentile of the market for comparable roles in the Bay Area tech industry.
+
+**Compensation Components:**
+- Base salary (reviewed annually, merit increases 3-7%)
+- Performance bonus (0-20% of base for individual contributors, 0-30% for managers)
+- Equity grants (RSUs vesting over 4 years with 1-year cliff)
+- Annual refresh grants based on performance
+
+**Salary Bands (2025):**
+- Software Engineer I: $120,000 - $150,000
+- Software Engineer II: $150,000 - $190,000
+- Senior Software Engineer: $190,000 - $240,000
+- Staff Engineer: $240,000 - $300,000
+- Principal Engineer: $300,000 - $400,000
+- Engineering Manager: $200,000 - $280,000
+- Senior Engineering Manager: $280,000 - $350,000
+- Director of Engineering: $350,000 - $450,000
+
+### Health Benefits
+
+TechCorp offers comprehensive health benefits to all full-time employees and their dependents.
+
+**Medical Insurance:**
+- Multiple plan options (PPO, HMO, HDHP with HSA)
+- Company pays 90% of employee premiums, 70% of dependent premiums
+- $1,500 annual HSA contribution for HDHP plans
+- $20 copay for primary care, $40 for specialists
+- Annual out-of-pocket maximum: $3,000 individual, $6,000 family
+
+**Additional Benefits:**
+- Dental insurance: 100% preventive care covered
+- Vision insurance: $200 annual allowance for glasses/contacts
+- Mental health: Unlimited therapy sessions through Lyra Health
+- Fitness: $100/month reimbursement for gym, classes, or fitness apps
+- Wellness stipend: $500/year for wellness-related expenses
+
+### Retirement and Financial Benefits
+
+- 401(k) with 4% company match (100% vested immediately)
+- Financial planning services through Northstar
+- Employee stock purchase plan (ESPP) with 15% discount
+- Life insurance: 2x annual salary (company-paid)
+- Disability insurance: Short-term (100% salary for 6 months) and long-term (60% salary)
+
+### Professional Development
+
+TechCorp invests heavily in employee growth and development.
+
+**Learning and Development:**
+- $2,000 annual budget for courses, conferences, books
+- Internal tech talks every Friday (optional attendance)
+- Quarterly hackathons with prizes up to $10,000
+- Mentorship program pairing junior engineers with senior leaders
+- Leadership development program for high-potential employees
+
+**Career Progression:**
+- Annual performance reviews with calibration across teams
+- Promotion cycles twice per year (June and December)
+- Individual development plans (IDPs) created with manager
+- Internal mobility encouraged (priority for internal candidates)
+
+---
+
+## Sales and Customer Success
+
+### Sales Process
+
+TechCorp follows an enterprise sales model with average deal size of $50,000 and 3-month sales cycle.
+
+**Sales Stages:**
+1. Lead generation (marketing, referrals, cold outreach)
+2. Discovery call (30 minutes with AE)
+3. Technical demo (60 minutes with Solutions Engineer)
+4. Proof of concept (2-week trial in customer environment)
+5. Security and compliance review (1-2 weeks)
+6. Contract negotiation (legal review, pricing approval)
+7. Close and handoff to customer success
+
+**Sales Team Structure:**
+- Account Executives (AEs): Quota of $1.2M ARR annually
+- Solutions Engineers (SEs): Support 3-4 AEs
+- Sales Development Reps (SDRs): Generate 80 qualified leads/month
+- Customer Success Managers (CSMs): Manage accounts post-sale (book of business $3M+)
+
+**Commission Structure:**
+- AEs earn 10% commission on new ARR, 5% on renewals
+- Accelerators at 80%, 100%, 120% of quota
+- President's Club for top 10% performers (trip to Hawaii)
+
+### Customer Success Metrics
+
+- Net Revenue Retention (NRR): Target of 120%
+- Customer Health Score: Composite of product usage, support tickets, NPS
+- Expansion ARR: $400K per CSM annually
+- Churn Rate: < 5% annually
+
+**Customer Onboarding:**
+- Week 1: Kickoff call, access provisioning, initial setup
+- Week 2-4: Implementation with technical integration support
+- Week 5-8: User training, custom configuration
+- Week 9-12: Go-live preparation, success criteria validation
+- Month 4+: Quarterly business reviews (QBRs)
+
+---
+
+## Financial Information
+
+### Q4 2024 Financial Results
+
+TechCorp exceeded expectations in Q4 2024 with strong growth across all metrics.
+
+**Revenue:**
+- Total Revenue: $145M (↑ 42% YoY)
+- Subscription Revenue: $132M (91% of total)
+- Professional Services: $13M (9% of total)
+- Annual Recurring Revenue (ARR): $520M (↑ 45% YoY)
+
+**Profitability:**
+- Gross Margin: 78% (up from 75% in Q4 2023)
+- Operating Margin: (12%) - Path to profitability by Q2 2026
+- Adjusted EBITDA: ($8M) - Improving from ($15M) in Q4 2023
+- Free Cash Flow: ($5M)
+
+**Customer Metrics:**
+- Total Customers: 5,200 (↑ 35% YoY)
+- Enterprise Customers (>$100K ARR): 280 (↑ 52% YoY)
+- Net Revenue Retention: 125%
+- Gross Revenue Retention: 95%
+- Average Contract Value (ACV): $52,000
+
+**Operating Expenses:**
+- Sales and Marketing: $65M (45% of revenue)
+- Research and Development: $55M (38% of revenue)
+- General and Administrative: $18M (12% of revenue)
+
+### 2025 Guidance
+
+For fiscal year 2025, TechCorp projects:
+- Revenue: $650M - $680M (↑ 40-46%)
+- ARR: $750M - $780M
+- Operating Margin: (8%) to (10%)
+- Rule of 40 Score: 30-35
+
+**Strategic Priorities:**
+- Expand international presence (target 30% of revenue from EMEA and APAC)
+- Launch new AI-powered products
+- Improve gross margin to 80% through operational efficiency
+- Achieve cash flow breakeven by Q4 2025
+
+---
+
+## Customer Stories and Case Studies
+
+### Fortune 500 Financial Services Company
+
+**Customer:** GlobalBank (name anonymized for confidentiality)
+
+**Challenge:** 
+GlobalBank had a fragmented authentication system across 50+ internal applications, leading to security vulnerabilities and poor user experience. Employees needed to remember 20+ passwords and authentication took 5-10 minutes per app.
+
+**Solution:**
+Implemented TechCorp AuthX Enterprise with SSO across all applications, adaptive MFA based on risk, and centralized user management.
+
+**Results:**
+- Reduced authentication time from 8 minutes to 15 seconds (97% improvement)
+- Eliminated 95% of password reset requests (was 10,000/month)
+- Prevented 23 potential security breaches through adaptive authentication
+- Saved $2.4M annually in IT support costs
+- Employee satisfaction score increased from 6.2 to 8.9 out of 10
+
+**Testimonial:**
+"TechCorp AuthX transformed our security posture while dramatically improving user experience. The ROI was clear within 3 months." - CISO, GlobalBank
+
+### Healthcare Technology Startup
+
+**Customer:** HealthTech Innovations
+
+**Challenge:**
+HIPAA compliance requirements for patient data access, need for secure authentication for 500 clinicians across 50 locations.
+
+**Solution:**
+Deployed TechCorp AuthX Professional with biometric MFA and audit logging.
+
+**Results:**
+- Achieved HIPAA compliance certification
+- Zero security incidents in 18 months
+- Reduced unauthorized access attempts by 99%
+- Clinician login time reduced from 2 minutes to 10 seconds
+
+### E-commerce Platform
+
+**Customer:** ShopFast
+
+**Challenge:**
+Credential stuffing attacks affecting 2% of user accounts monthly, high cart abandonment due to complex login process.
+
+**Solution:**
+Integrated TechCorp AuthX with fraud detection AI and social login options.
+
+**Results:**
+- Blocked 1.2M fraud attempts in first 6 months
+- Reduced cart abandonment by 18%
+- Increased conversion rate by 12%
+- Customer lifetime value increased 23%
+
+---
+
+## Competitive Analysis
+
+### Market Position
+
+TechCorp AuthX competes in the $12B identity and access management (IAM) market, projected to grow to $24B by 2028.
+
+**Primary Competitors:**
+
+**Okta:**
+- Market leader with 35% market share
+- Strengths: Brand recognition, extensive integrations, mature product
+- Weaknesses: Complex pricing, slow innovation, recent security incidents
+- Our differentiator: 40% lower cost, better developer experience, AI-powered features
+
+**Auth0 (acquired by Okta):**
+- Developer-first approach
+- Strengths: Easy integration, good documentation, free tier
+- Weaknesses: Limited enterprise features, inconsistent pricing
+- Our differentiator: Better enterprise scalability, superior support, competitive pricing
+
+**Microsoft Entra ID (formerly Azure AD):**
+- Deep Microsoft ecosystem integration
+- Strengths: Bundled with Microsoft 365, enterprise relationships
+- Weaknesses: Locked to Microsoft stack, complex for non-Microsoft shops
+- Our differentiator: Cloud-agnostic, better API, modern architecture
+
+**AWS Cognito:**
+- Built into AWS ecosystem
+- Strengths: Easy for AWS users, pay-as-you-go pricing
+- Weaknesses: AWS-only, basic features, poor UX
+- Our differentiator: Better UX, advanced features, multi-cloud support
+
+**Competitive Win Rate:**
+- vs Okta: 42% (up from 35% in 2023)
+- vs Auth0: 68%
+- vs Microsoft: 55%
+- vs AWS Cognito: 78%
+
+---
+
+## Company Culture and Values
+
+### Core Values
+
+**Customer Obsession:**
+We start with customer needs and work backwards. Every decision considers impact on customer success.
+
+**Innovation:**
+We embrace experimentation and learn from failures. 10% of engineering time dedicated to innovation projects.
+
+**Transparency:**
+We share information openly. Monthly all-hands meetings with Q&A. Open salary bands and promotion criteria.
+
+**Inclusion:**
+We build diverse teams and inclusive culture. 40% of leadership roles held by women and underrepresented minorities. ERGs (Employee Resource Groups) for various communities.
+
+**Execution:**
+We set ambitious goals and deliver results. OKRs reviewed quarterly. Public accountability for commitments.
+
+### Work-Life Balance
+
+- No expectation of work outside business hours
+- Slack quiet hours enforced (no notifications 6 PM - 8 AM)
+- "No meeting Fridays" for focused work time
+- Unlimited PTO policy (minimum 15 days encouraged)
+- Quarterly mental health days (company-wide shutdown)
+- Sabbatical program (1 month paid after 5 years)
+
+### Diversity and Inclusion
+
+**Current Demographics (2024):**
+- Women: 38% overall, 32% in engineering, 45% in leadership
+- Underrepresented minorities: 35% overall, 28% in engineering
+- LGBTQ+: 12% (self-reported)
+
+**Initiatives:**
+- Unconscious bias training for all employees
+- Diverse interview panels required
+- Sponsorship program for underrepresented talent
+- Pay equity audits twice yearly
+- $50,000 annual donation to CS education nonprofits
+
+---
+
+## Contact Information and Resources
+
+### General Contact
+
+- Main Office: 123 Market Street, San Francisco, CA 94103
+- Phone: +1 (415) 555-TECH
+- Email: info@techcorp.com
+- Website: www.techcorp.com
+
+### Department-Specific
+
+- Sales: sales@techcorp.com
+- Support: support@techcorp.com (24/7)
+- HR: hr@techcorp.com
+- Press: press@techcorp.com
+- Security: security@techcorp.com
+- Ethics Hotline: 1-800-555-ETHICS
+
+### Documentation and Resources
+
+- Product Documentation: docs.techcorp.com
+- API Reference: api.techcorp.com
+- Status Page: status.techcorp.com
+- Developer Community: community.techcorp.com
+- Knowledge Base: help.techcorp.com
+- Blog: blog.techcorp.com
+- Careers: careers.techcorp.com
+
+### Social Media
+
+- LinkedIn: linkedin.com/company/techcorp
+- Twitter: @techcorp
+- GitHub: github.com/techcorp
+- YouTube: youtube.com/techcorp
+
+---
+
+## Frequently Asked Questions
+
+### For Employees
+
+**Q: How do I request vacation?**
+A: Submit requests through BambooHR at least 2 weeks in advance. Your manager will approve within 3 business days.
+
+**Q: What is the promotion process?**
+A: Promotions are considered twice yearly (June and December). Discuss readiness with your manager during 1-on-1s. Promotion packets require manager sponsorship and peer feedback.
+
+**Q: Can I work remotely full-time?**
+A: Certain roles are eligible for full remote work. Check with your manager and HR. All remote requests require VP approval.
+
+**Q: How do I expense a purchase?**
+A: Submit via Expensify within 30 days with receipts. Follow expense policy limits. Approval is automatic for standard expenses under policy limits.
+
+### For Customers
+
+**Q: What is your uptime SLA?**
+A: 99.5% for Starter, 99.9% for Professional, 99.99% for Enterprise. We provide SLA credits for any downtime beyond these thresholds.
+
+**Q: Do you support on-premise deployment?**
+A: Yes, for Enterprise customers only. Requires minimum 1-year contract and additional implementation fees.
+
+**Q: How do you handle data privacy?**
+A: We are GDPR, CCPA, and SOC 2 Type II compliant. Customer data is encrypted at rest and in transit. Data retention policies configurable per tenant.
+
+**Q: What integrations do you support?**
+A: 200+ pre-built integrations including Salesforce, Workday, ServiceNow, Slack, Teams, and all major HRIS systems. Custom integrations available for Enterprise customers.
+
+---
+
+**Document Version:** 3.2
+**Last Updated:** January 15, 2025
+**Next Review Date:** April 15, 2025
+**Document Owner:** Knowledge Management Team (knowledge@techcorp.com)
