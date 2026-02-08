@@ -122,14 +122,14 @@ The system uses an 8-agent workflow orchestrated by LangGraph:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd enterprise-search-ai
+   git clone https://github.com/Rohit-2703/enterprise-agentic-search.git
+   cd enterprise-agentic-search
    ```
 
 2. **Configure environment variables**
 ```bash
 cp .env.example .env
-# Edit .env with your API keys
+# Edit .env with your API keys After this kill this terminal and start a new terminal and go to project root by cd enterprise-agentic-search
 ```
 
 3. **Start services**
@@ -141,6 +141,7 @@ cp .env.example .env
 ```bash
 docker-compose exec backend python scripts/init_data.py
 ```
+This command initializes the database tables, seeds PostgreSQL with mock test data (employees, sales, products, departments), and uploads the enterprise knowledge base from `data/enterprise_knowledge_base.txt` to the vector database (Pinecone).
 
 5. **Access the application**
 - **Streamlit UI**: http://localhost:8501

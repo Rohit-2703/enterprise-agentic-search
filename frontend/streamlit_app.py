@@ -349,10 +349,6 @@ with col_examples:
     - Show me all bugs assigned to the engineering team
     - What epics are planned for next quarter?
     
-    **Slack/Communication:**
-    - What were the recent discussions about product features?
-    - Show me messages from the engineering channel last week
-    
     **Documentation (Confluence/Wiki):**
     - What is our company's vacation policy?
     - Find documentation about the API authentication system

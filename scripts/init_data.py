@@ -3,7 +3,9 @@ import sys
 import os
 from datetime import datetime
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))  # Add scripts directory to path
 
 from backend.retrieval import pinecone_client, embedding_generator
 from backend.database import init_db, get_db_session, DocumentMetadata
@@ -17,10 +19,31 @@ def main():
     logger.info("=== Starting Data Initialization ===")
     
     logger.info("Initializing database...")
-    init_db()
+    try:
+        init_db()
+        logger.info("Database tables created successfully")
+    except Exception as e:
+        logger.error(f"Failed to initialize database: {e}")
+        raise
+    
+    # Seed PostgreSQL with test data (employees, sales, etc.)
+    logger.info("Seeding PostgreSQL with test data...")
+    try:
+        from seed_postgresql import main as seed_postgresql
+        seed_postgresql()
+        logger.info("PostgreSQL seeding completed successfully")
+    except Exception as e:
+        logger.error(f"Failed to seed PostgreSQL: {e}")
+        raise
     
     logger.info("Loading enterprise knowledge base...")
-    kb_path = "data/enterprise_knowledge_base.txt"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    kb_path = os.path.join(project_root, "data", "enterprise_knowledge_base.txt")
+    
+    logger.info(f"Looking for knowledge base at: {kb_path}")
+    logger.info(f"Current working directory: {os.getcwd()}")
+    
     kb_chunks = None
     
     if os.path.exists(kb_path):
@@ -62,7 +85,8 @@ def main():
         
         logger.info(f"Indexed {len(kb_vectors)} knowledge base chunks to Pinecone")
         
-        with get_db_session() as db:
+        db = get_db_session()
+        try:
             kb_metadata = DocumentMetadata(
                 document_id="enterprise_kb",
                 source_type="wiki",
@@ -75,6 +99,13 @@ def main():
             )
             db.add(kb_metadata)
             db.commit()
+            logger.info("Successfully saved knowledge base metadata to database")
+        except Exception as e:
+            logger.error(f"Error saving to database: {e}")
+            db.rollback()
+            raise
+        finally:
+            db.close()
     else:
         logger.warning(f"Knowledge base file not found at {kb_path}")
         logger.info("No knowledge base to index. You can add documents via the upload interface.")
@@ -85,8 +116,25 @@ def main():
     else:
         logger.info("No documents indexed. Database initialized successfully.")
     
-    stats = pinecone_client.get_stats()
-    logger.info(f"Pinecone stats: {stats}")
+    try:
+        stats = pinecone_client.get_stats()
+        logger.info(f"Pinecone stats: {stats}")
+    except Exception as e:
+        logger.warning(f"Could not get Pinecone stats: {e}")
+    
+    db = get_db_session()
+    try:
+        from sqlalchemy import inspect
+        inspector = inspect(db.bind)
+        tables = inspector.get_table_names()
+        logger.info(f"Database tables created: {', '.join(tables)}")
+        
+        doc_count = db.query(DocumentMetadata).count()
+        logger.info(f"DocumentMetadata records in database: {doc_count}")
+    except Exception as e:
+        logger.warning(f"Could not verify database state: {e}")
+    finally:
+        db.close()
 
 
 if __name__ == "__main__":
