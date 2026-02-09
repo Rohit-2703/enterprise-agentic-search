@@ -334,27 +334,19 @@ with col_examples:
     st.divider()
     
     st.markdown("""
-    **Database Queries (PostgreSQL):**
-    - How many employees are in the Engineering department?
-    - What is the total sales for Q4 2024?
-    - Show me all products with price above $100
-    
-    **GitHub Queries:**
-    - Show me recent GitHub issues in the main repository
-    - What pull requests were merged last week?
-    - Find code related to authentication in the backend
-    
-    **JIRA Queries:**
-    - What JIRA tickets are in the current sprint?
-    - Show me all bugs assigned to the engineering team
-    - What epics are planned for next quarter?
-    
-    **Documentation (Confluence/Wiki):**
+    **GitHub & Repositories:**
+    - What is the repo enterprise-agentic-search all about? (repo name is mandatory)
+    - Give me all the repos I have in Git?
+
+    **Company Policies & Work Model:**
     - What is our company's vacation policy?
-    - Find documentation about the API authentication system
-    
-    **Complex Multi-Source Queries:**
-    - Compare our Q3 vs Q4 performance and explain key differences
-    - What technical decisions were made regarding authentication and why?
-    - Show me all discussions, tickets, and code related to the new feature launch
+    - What is the work model at the company?
+
+    **PostgreSQL / Structured Data:**
+    - How many employees are there in the Engineering Team?
+    - Show me all products with price above $100 (shows top 5)
+
+    **JIRA:**
+    - How many open tasks do we have in JIRA?
+    - When was SCRUM-1 assigned?
     """)

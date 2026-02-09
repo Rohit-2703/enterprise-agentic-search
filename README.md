@@ -40,7 +40,7 @@ The system is designed to handle complex, multi-part queries by automatically de
 
 For a detailed visual representation of the system architecture, please refer to the architecture diagram:
 
-**[View Architecture Diagram](YOUR_DRIVE_LINK_TO_ARCHITECTURE_DIAGRAM)**
+**[View Architecture Diagram](https://drive.google.com/file/d/1EeoFpLOkq5TlbdHsXuV6nhl89PWqi3qW/view?usp=sharing)**
 
 The diagram illustrates:
 - Frontend layer (Streamlit UI)
@@ -54,7 +54,7 @@ The diagram illustrates:
 
 Watch the system in action with a comprehensive walkthrough:
 
-**[Watch Demo Video](YOUR_DRIVE_LINK_TO_VIDEO)**
+**[Watch Demo Video](https://drive.google.com/file/d/17c35VamTQNlKnc73X_GX15bQg-ujKPYu/view?usp=sharing)**
 
 The video demonstrates:
 - Query processing workflow
@@ -63,37 +63,7 @@ The video demonstrates:
 - Confidence scoring
 - Real-time streaming responses
 
-### High-Level Architecture
 
-```
-┌─────────────────┐
-│  Streamlit UI   │  User Interface
-└────────┬────────┘
-         │
-┌────────▼────────┐
-│   FastAPI API   │  REST Endpoints + Streaming
-└────────┬────────┘
-         │
-┌────────▼────────┐
-│  LangGraph      │  Agent Orchestration
-│  Workflow       │
-└────────┬────────┘
-         │
-    ┌────┴────┐
-    │         │
-┌───▼───┐ ┌──▼────┐
-│Cache  │ │Agents │
-│Layer  │ │       │
-└───────┘ └───┬───┘
-              │
-    ┌─────────┼─────────┐
-    │         │         │
-┌───▼───┐ ┌──▼───┐ ┌───▼───┐
-│Pinecone│ │ MCP  │ │OpenAI │
-│Vector  │ │Clients│ │API    │
-│Search  │ │       │ │       │
-└───────┘ └───────┘ └───────┘
-```
 
 ### Agent Workflow
 
@@ -153,24 +123,22 @@ This command initializes the database tables, seeds PostgreSQL with mock test da
 ### Simple Queries
 ```
 "What is our company's vacation policy?"
-"Show me product discussions from last quarter"
+"How many employees are there in the ENgineering Team?"
+"Are there any open JIRA tasks?"
 ```
 
 ### Complex Multi-Source Queries
 ```
-"Compare our Q3 vs Q4 performance and explain key differences"
-"What technical decisions were made regarding authentication and why?"
-"Show me all discussions, tickets, and code related to the new feature launch"
+"How many employees are there in the Engineering department and what is their average salary?"
 ```
 
 ### Real-Time Queries
 ```
 "How many employees are in the Engineering department?"
-"Show me recent GitHub issues in the main repository"
 "What JIRA tickets are in the current sprint?"
 ```
 
-## 🔧 Technology Stack
+## Technology Stack
 
 ### Core Technologies
 - **LangGraph**: Agent orchestration and workflow management
